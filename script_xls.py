@@ -1,6 +1,7 @@
 import io
 import os.path
 import re
+import json
 from datetime import datetime
 
 from openpyxl import Workbook
@@ -64,12 +65,14 @@ for key in sorted(items_map.keys()):
 	items.append(items_map.get(key))
 
 rows = []
-first_row = ['', u'缺*成果']
+first_row = ['', u'缺必達指標']
 col_offset = len(first_row)
 first_row.extend(items)
 rows.append(first_row)
 p = re.compile("([0-9]+).+")
 
+with open("phone.json", encoding = "utf-8-sig") as phone_file:
+    phone_data = json.load(phone_file)
 
 for school in schools:
     match = p.search(school)
@@ -132,6 +135,7 @@ for i in range(1, len(rows)+1):
         c.border = Border(right=Side(style='thick'))
     
 ws.column_dimensions["%c" % last_col].width = 28
+ws.column_dimensions["%c" % 'B'].width = 13
 
 # divide
 second_col = 66
@@ -156,6 +160,11 @@ for j in range(67, 65+len(rows[0])):
                 start_color='0090EE90',
                 end_color='0090EE90'
             )
+
+cell = "C2"
+c = ws[cell]
+ws.freeze_panes = c
+
 # timestamp
 now = datetime.now()
 
@@ -165,7 +174,7 @@ wb.save("summary_%s.xlsx" % now.strftime("%m-%d_%H_%M"))
 #print(items)
 #print (schools)
 
-line1 = u"{}/{} 國小 {}".format(len(elementary_school_done), len(elementary_school), len(elementary_school) - len(elementary_school_done))
-line2 = u"{}/{} 國中 {}".format(len(middle_school_done), len(middle_school), len(middle_school) - len(middle_school_done))
+line1 = u"國小共 %3d 間: %3d 間缺必達指標  其餘 %3d 間可開始評鑑" % (len(elementary_school), len(elementary_school) - len(elementary_school_done), len(elementary_school_done))
+line2 = u"國中共 %3d 間: %3d 間缺必達指標  其餘 %3d 間可開始評鑑" % (len(middle_school), len(middle_school) - len(middle_school_done), len(middle_school_done))
 print(line1)
 print(line2)
