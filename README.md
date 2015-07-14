@@ -9,29 +9,29 @@ Not that all level-2 directories all have the same level-3 subdirectories.
 Example:
 
 <pre>
-/home/upload<br />
-├── 001White<br />
-│   ├── Item1<br><br />
-│   │   ├── a.txt<br />
-│   │   └── b.txt<br />
-│   ├── Item2<br />
-│   │   └── a.jpg<br />
-│   └── Item3<br />
-│       └── c.pdf<br />
-├── 002Red<br />
-│   ├── Item1<br />
-│   │   ├── a.txt<br />
-│   │   └── b.txt<br />
-│   ├── Item2<br />
-│   └── Item3<br />
-│       └── c.pdf<br />
-└── 003Blue<br />
-    ├── Item1<br />
-    │   ├── a.txt<br />
-    │   └── b.txt<br />
-    ├── Item2<br />
-    │   └── a.jpg<br />
-    └── Item3<br />
+/home/upload
+├── 001White
+│   ├── Item1
+│   │   ├── a.txt
+│   │   └── b.txt
+│   ├── Item2
+│   │   └── a.jpg
+│   └── Item3
+│       └── c.pdf
+├── 002Red
+│   ├── Item1
+│   │   ├── a.txt
+│   │   └── b.txt
+│   ├── Item2
+│   └── Item3
+│       └── c.pdf
+└── 003Blue
+    ├── Item1
+    │   ├── a.txt
+    │   └── b.txt
+    ├── Item2
+    │   └── a.jpg
+    └── Item3
 </pre>
 should generate the following excel spreadsheet
 
