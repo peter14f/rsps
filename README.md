@@ -1,10 +1,9 @@
 #script_xls_new.py
-#script_xls.py
 
-Goes through all the subdirectories in root_path and creates a spreadsheet that summarizes which 
+Goes through all the subdirectories in *root_path* and creates a spreadsheet that summarizes which 
 level-2 directories do not have any files in its level-3 subdirectories.
 
-Not that all level-2 directories all have the same level-3 subdirectories.
+Note that the program assumes that all level-2 directories all have the same level-3 subdirectories.
 
 Example:
 
@@ -62,4 +61,4 @@ should generate the following excel spreadsheet
     </tr>
 </table>
 
-script_xls.py and script_xls_new.py use Python library openpyxl to produce the .xlsx file.
+script_xls_new.py uses the Python library **openpyxl** to produce the .xlsx file.
